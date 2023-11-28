@@ -1,0 +1,205 @@
+/*__________________________________________________________________________________CSS navbar__________________________________________________________________________________*/
+
+/*_____________________________________________________________CSS navbar___________*/
+
+/* Import de la police d'écriture 'Ephesis' */
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+
+/* Styles généraux */
+html {
+    height: 100%;
+}
+
+/* Styles de la Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 100px;
+}
+
+.navbar-left,
+.navbar-section.right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: auto;
+    /* Assurez-vous que le logo garde ses proportions */
+    width: auto;
+    /* Vous pouvez aussi définir une largeur si nécessaire */
+    max-height: 350px;
+    /* Ou une autre valeur selon la taille désirée */
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.navbar-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 3.5em;
+    /* Taille ajustée */
+}
+
+/* Styles spécifiques pour l'input et le bouton de recherche */
+.search-form input,
+.search-form button {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Styles de la barre de recherche */
+.search-form {
+    position: absolute;
+    /* Positionnement absolu par rapport au parent relatif le plus proche */
+    top: 50px;
+    /* Ajustez cette valeur pour remonter la barre de recherche */
+    left: 50%;
+    /* Décale la barre de recherche à 50% de la largeur du parent */
+    transform: translate(+150%, -50%);
+    /* Centre la barre de recherche horizontalement et verticalement */
+}
+
+/* Styles pour la partie droite de la Navbar */
+.navbar-section.right a,
+.navbar-section.right .dropdown {
+    margin-left: 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+/* Styles pour le bouton 'Connexion' */
+.search-form2 button {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    /* Fond du bouton */
+    color: #000;
+    /* Couleur du texte */
+    cursor: pointer;
+    /* Change le curseur au survol */
+}
+
+/* Styles pour le lien 'Espace utilisateur' et son menu déroulant */
+.nav-item {
+    position: relative;
+    /* Positionnement relatif pour le conteneur du menu déroulant */
+}
+
+.nav-item .nav-link {
+    font-size: 3.2em;
+    text-decoration: none;
+    cursor: pointer;
+    /* Change le curseur au survol */
+}
+
+/* Styles pour le menu déroulant */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+}
+
+/* Affiche le menu déroulant au survol de 'Espace utilisateur' */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ffafdc;
+}
+
+.navbar-section.right .bi-cart3 {
+    font-size: 3.2em;
+    margin-right: 80px;
+}
+
+/* Styles pour les éléments du menu déroulant */
+.dropdown-menu .dropdown-item {
+    display: block;
+    /* Assure que chaque élément est sur sa propre ligne */
+    padding: 10px;
+    /* Ajoute un peu d'espace autour du texte */
+    text-decoration: none;
+    /* Enlève le soulignement des liens */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ff51b4;
+    /* Couleur de fond au survol, si nécessaire */
+}
+
+/*_____________________________________________________________CSS image header___________*/
+
+.header-carousel {
+    margin-top: 70px;
+    margin-left: 150px;
+    width: 35%;
+    height: auto;
+    border-radius: 15px;
+    overflow: hidden; /* Cache les parties débordantes des images */
+}
+
+.carousel-image {
+    width: 100%;
+    border-radius: 15px; /* Pour arrondir les bords des images */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Transition douce pour l'apparition des images */
+}
+
+/* Styles pour le contenu de l'en-tête */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.header-image {
+    margin-top: 70px;
+    margin-left: 150px;
+    width: 35%; /* Réduire la taille de l'image */
+    height: auto; /* Garder les proportions */
+    border-radius: 15px; /* Arrondir les bords de l'image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optionnel: Ajouter une ombre pour un effet de profondeur */
+}
+
+
+.header-slogan {
+    width: 50%; /* Ajustez la largeur du slogan selon vos besoins */
+    padding: 20px;
+    text-align: center; /* Alignement du texte */
+    font-family: 'Ephesis', cursive; /* Utilisation de la police importée */
+    font-size: 2em; /* Taille de la police pour le slogan */
+}
+
+.header-slogan h1 {
+    margin: 0;
+    color: #333; /* Couleur du titre */
+    font-size: 1.5em; /* Taille du titre */
+}
+
+.header-slogan p {
+    margin-top: 10px;
+    color: #666; /* Couleur du texte */
+}
+
+/*__________________________________________________________________________________CSS reste__________________________________________________________________________________*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ephesis', cursive;
+    background: linear-gradient(to bottom, #ffafdc 0%, #ffffff 100%);
+    min-height: 100%;
+    padding-top: 60px;
+}
