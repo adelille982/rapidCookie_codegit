@@ -1,199 +1,249 @@
-/*__________________________________________________________________________________CSS navbar__________________________________________________________________________________*/
-
-/*_____________________________________________________________CSS navbar___________*/
-
-/* Import de la police d'écriture 'Ephesis' */
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
 
-/* Styles généraux */
-html {
-    height: 100%;
+
+/*=========================
+  CSS pour la navbar
+=========================*/
+* {
+    text-decoration: none;
+    list-style: none;
 }
 
-/* Styles de la Navbar */
+.hamburger-icon {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1500px) {
+    .hamburger-icon {
+        display: block;
+    }
+    .navbar > .nav-left {
+        top: 0;
+        left: 0;
+        position: absolute;
+        flex-direction: column;
+    }
+    .navbar > .nav-right {
+        margin-top: 450px;
+        position: absolute;
+        flex-direction: column;
+    }
+    .nav-left ul {
+        display: flex;
+        flex-wrap: wrap; /* Permet aux éléments de la liste de passer à la ligne */
+      }
+      
+      .nav-left ul li {
+        width: 100%; /* Force chaque élément de la liste à occuper la largeur totale de la ligne */
+        text-align: center; /* Centre le texte dans chaque élément */
+      }   
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    position: relative;
-    height: 100px;
+    height: 90px;
+    padding: 0 30px;
 }
 
-.navbar-left,
-.navbar-section.right {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-brand img {
+.logo {
+    width: 400px;
     height: auto;
-    /* Assurez-vous que le logo garde ses proportions */
-    width: auto;
-    /* Vous pouvez aussi définir une largeur si nécessaire */
-    max-height: 350px;
-    /* Ou une autre valeur selon la taille désirée */
+    margin-left: -70px;
+    margin-right: -90px;
 }
 
-.navbar-nav {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    padding: 0;
-}
-
-.navbar-nav a {
+.navbar a {
     color: #333;
     text-decoration: none;
     font-size: 3.5em;
-    /* Taille ajustée */
+    transition: color 0.3s;
 }
 
-/* Styles spécifiques pour l'input et le bouton de recherche */
+.nav-left a:hover {
+    color: white;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
 .search-form input,
 .search-form button {
     padding: 10px;
-    border-radius: 20px;
     border: 1px solid #ccc;
+    font-size: 1em;
 }
 
-/* Styles de la barre de recherche */
-.search-form {
-    position: absolute;
-    /* Positionnement absolu par rapport au parent relatif le plus proche */
-    top: 50px;
-    /* Ajustez cette valeur pour remonter la barre de recherche */
-    left: 50%;
-    /* Décale la barre de recherche à 50% de la largeur du parent */
-    transform: translate(+150%, -50%);
-    /* Centre la barre de recherche horizontalement et verticalement */
+.search-form input {
+    border-radius: 20px 0 0 20px;
 }
 
-/* Styles pour la partie droite de la Navbar */
-.navbar-section.right a,
-.navbar-section.right .dropdown {
-    margin-left: 20px;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-}
-
-/* Styles pour le bouton 'Connexion' */
-.search-form2 button {
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    /* Fond du bouton */
-    color: #000;
-    /* Couleur du texte */
+.search-form button {
+    border-radius: 0 20px 20px 0;
     cursor: pointer;
-    /* Change le curseur au survol */
 }
 
-/* Styles pour le lien 'Espace utilisateur' et son menu déroulant */
-.nav-item {
-    position: relative;
-    /* Positionnement relatif pour le conteneur du menu déroulant */
+.nav-right {
+    display: flex;
 }
 
-.nav-item .nav-link {
-    font-size: 3.2em;
+.nav-right .user-menu,
+.nav-right a {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    color: #333;
     text-decoration: none;
-    cursor: pointer;
-    /* Change le curseur au survol */
+    transition: color 0.3s;
 }
 
-/* Styles pour le menu déroulant */
+.nav-right a:hover {
+    color: white;
+}
+
+
+.nav-left ul, .nav-right .user-menu {
+    display: flex;
+    margin: 0;
+}
+
+.nav-left li, .nav-right .user-menu {
+    margin-right: 50px;
+}
+
 .dropdown-menu {
     display: none;
-    position: absolute;
+    position: relative;
+    background-color: rgb(255, 87, 87)55, 255, 255;
+    width: 200px; /* Largeur fixe du menu déroulant */
 }
 
-/* Affiche le menu déroulant au survol de 'Espace utilisateur' */
-.nav-item:hover .dropdown-menu {
+.dropdown-menu a {
+    padding: 8px 15px; /* Ajustez le padding pour réduire la taille globale des liens */
+    font-size: 1.5em; /* Taille de police spécifique pour les liens */
+}
+
+.user-menu:hover .dropdown-menu {
     display: block;
 }
 
-.dropdown-menu .dropdown-item:hover {
-    background-color: #ffafdc;
-}
-
-.navbar-section.right .bi-cart3 {
-    font-size: 3.2em;
-    margin-right: 80px;
-}
-
-/* Styles pour les éléments du menu déroulant */
-.dropdown-menu .dropdown-item {
-    display: block;
-    /* Assure que chaque élément est sur sa propre ligne */
-    padding: 10px;
-    /* Ajoute un peu d'espace autour du texte */
-    text-decoration: none;
-    /* Enlève le soulignement des liens */
-}
-
-.dropdown-menu .dropdown-item:hover {
-    background-color: #ff51b4;
-    /* Couleur de fond au survol, si nécessaire */
-}
-
-/*_____________________________________________________________CSS image header___________*/
+/*=========================
+  CSS pour le Carousel
+=========================*/
 
 .header-carousel {
+    position: relative;
     margin-top: 70px;
-    margin-left: 150px;
-    width: 35%;
-    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    height: 600px;
     border-radius: 15px;
-    overflow: hidden; /* Cache les parties débordantes des images */
+    overflow: hidden;
 }
 
 .carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-radius: 15px; /* Pour arrondir les bords des images */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Transition douce pour l'apparition des images */
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* Styles pour le contenu de l'en-tête */
+/*=========================
+  CSS pour l'Image Section
+=========================*/
+
 .header-content {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+    flex-direction: column;
+
+}
+
+@media (min-width: 1440px) {
+    .header-content {
+        flex-direction: row;
+    }
 }
 
 .header-image {
-    margin-top: 70px;
-    margin-left: 150px;
-    width: 35%; /* Réduire la taille de l'image */
+    margin-top: auto;
+    margin-left: auto;
     height: auto; /* Garder les proportions */
-    border-radius: 15px; /* Arrondir les bords de l'image */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optionnel: Ajouter une ombre pour un effet de profondeur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/*=========================
+  CSS pour le Slogan Header
+=========================*/
 
 .header-slogan {
-    width: 50%; /* Ajustez la largeur du slogan selon vos besoins */
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
     padding: 20px;
-    text-align: center; /* Alignement du texte */
-    font-family: 'Ephesis', cursive; /* Utilisation de la police importée */
-    font-size: 2em; /* Taille de la police pour le slogan */
+    text-align: center;
+    font-family: 'Ephesis', cursive;
+    font-size: 2em;
 }
 
 .header-slogan h1 {
     margin: 0;
-    color: #333; /* Couleur du titre */
-    font-size: 1.5em; /* Taille du titre */
+    color: #333;
+    font-size: 1.5em;
 }
 
 .header-slogan p {
     margin-top: 10px;
-    color: #666; /* Couleur du texte */
+    color: #666;
 }
 
-/*__________________________________________________________________________________CSS reste__________________________________________________________________________________*/
+.order-button {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: 'Ephesis', cursive;
+    font-size: 1.2em;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.order-button:hover {
+    background-color: #ffafdc;
+    color: white;
+}
+
+/*=========================
+  CSS Général
+=========================*/
+
+html {
+    height: 100%;
+}
 
 body {
     margin: 0;
