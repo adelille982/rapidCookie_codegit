@@ -1,11 +1,5 @@
 <?php
-include_once 'header.php'
-?>
+require_once "Config.php";
+require_once "Database.php";
 
-<br>
-<br>
-<br>
-
-<?php
-include_once 'footer.php'
 ?>
