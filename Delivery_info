@@ -1,0 +1,66 @@
+<?php
+
+// Inclure le fichier de configuration de la base de données
+include_once('Database.php');
+
+class DeliveryInfo
+{
+    private $pdo;
+
+    public function __construct()
+    {
+        // Connexion à la base de données
+        try {
+            $this->pdo = new PDO(DB_DSN, DB_USER, DB_PASS);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Erreur de connexion à la base de données : " . $e->getMessage());
+        }
+    }
+
+    public function getDeliveryInfos()
+    {
+        // Récupérer les données de la table delivery_infos
+        $query = "SELECT order_id, delivery_date, delivery_status FROM delivery_info";
+        $statement = $this->pdo->query($query);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+// Créer une instance de la classe DeliveryInfo
+$deliveryInfo = new DeliveryInfo();
+
+// Récupérer les données de la table
+$deliveryInfos = $deliveryInfo->getDeliveryInfos();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Livraisons</title>
+</head>
+<body>
+    <h2>Liste des Livraisons</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Delivery Date</th>
+                <th>Delivery Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($deliveryInfos as $deliveryInfo) : ?>
+                <tr>
+                    <td><?= $deliveryInfo['order_id'] ?></td>
+                    <td><?= $deliveryInfo['delivery_date'] ?></td>
+                    <td><?= $deliveryInfo['delivery_status'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
+</html>

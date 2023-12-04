@@ -37,7 +37,7 @@
           <a href="compte_utilisateur.php"><strong>MON COMPTE</strong></a>
         </div>
       </div>
-      <a href="panier.php"><i class="bi bi-cart3"></i></a>
+      <a href="FormCart.php"><i class="bi bi-cart3"></i></a>
     </div>
       <i class="bi bi-list hamburger-icon" alt="menu-hamburger"></i>
   </nav>

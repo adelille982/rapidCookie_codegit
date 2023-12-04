@@ -1,20 +1,25 @@
 <?php
 class User {
+    private $id;
     private $username;
     private $email;
     private $password;
 
-    public function __construct($username, $email, $password) {
+    public function __construct($id, $username, $email, $password) {
+        $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
+    }
+
+    public function getUserId() {
+        return $this->id;
     }
 
     public function authenticate($enteredPassword) {
         return password_verify($enteredPassword, $this->password);
     }
 
-    // Utilisation de PDO pour enregistrer l'utilisateur dans la base de données
     public function registerUser() {
         $dsn = "mysql:host=localhost;dbname=rapidcookie";
         $username = "root";
@@ -31,6 +36,9 @@ class User {
             $stmt->bindParam(2, $this->email);
             $stmt->bindParam(3, $passwordHash);
             $stmt->execute();
+
+            // Récupérer l'ID généré automatiquement après l'insertion
+            $this->id = $pdo->lastInsertId();
 
             $pdo = null; // Fermer la connexion
         } catch (PDOException $e) {

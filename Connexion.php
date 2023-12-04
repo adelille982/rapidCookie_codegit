@@ -1,5 +1,9 @@
 <?php
 require_once 'User.php';
+require_once 'Authenticator.php';
+
+// Assurez-vous que la session est démarrée
+session_start();
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -8,12 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Authentifier l'utilisateur
-    $user = new User($username, '', $password); // Notez le champ vide pour l'e-mail
+    $user = new User($id,$username, '', $password); // Notez le champ vide pour l'e-mail
     if ($user->authenticate($password)) {
         // L'authentification a réussi
-        echo "Authentification réussie!";
+        $_SESSION['username'] = $username; // Stocker les informations de l'utilisateur dans la session
+        header('Location: accueil.php'); // Rediriger vers la page d'accueil
+        exit();
     } else {
         // L'authentification a échoué
+        // Vous pouvez rediriger vers une page d'erreur ou simplement afficher un message ici
         echo "Nom d'utilisateur ou mot de passe incorrect.";
     }
 }
@@ -29,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2>Connexion</h2>
     <form method="post" action="">
+        <!-- Cette partie CSRF a été retirée -->
+        
         <label for="username">Nom d'utilisateur:</label>
         <input type="text" id="username" name="username" required><br>
 
