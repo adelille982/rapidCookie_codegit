@@ -43,10 +43,9 @@
     .nav-right {
         display: flex;
         flex-direction: column;
+        margin-top: 500px;
         max-width: 100%;
         text-align: center;
-        /* Occupe la largeur totale de la navbar */
-        font-size: 1.1em;
         background-color: rgba(255, 255, 255, 0.452);
         backdrop-filter: blur(7px);
         z-index: 1000;
@@ -114,17 +113,22 @@
         justify-content: center;
         /* Centre le formulaire dans son conteneur */
     }
+    
 }
 
 .navbar {
+    /* Styles de .navbar restent inchangés */
+    position: relative;
+    top: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 90px;
-    padding: 0 30px;
+    padding: 0 25px;
 }
 
 .logo {
+    /* Styles de .logo restent inchangés */
     width: 400px;
     height: auto;
     margin-left: -70px;
@@ -236,10 +240,10 @@
 
 .header-carousel {
     position: relative;
-    margin-top: 70px;
+    margin-top: 130px;
     margin-left: auto;
     margin-right: auto;
-    width: 45%;
+    width: 35%;
     height: 600px;
     border-radius: 15px;
     overflow: hidden;
@@ -264,13 +268,37 @@
 .header-content {
     display: flex;
     flex-direction: column;
-
+    padding: auto;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (min-width: 1440px) {
+@media (max-width: 1315px) {
+    .header-carousel {
+        margin-bottom: -230px; /* Réduisez selon le besoin */
+        height: 500px;
+        width: 80%;
+    }
+    .header-slogan {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre les éléments */
+    }
+
+    .header-slogan h1 {
+        order: 2; /* Le texte est affiché en second */
+    }
+
+    .order-button {
+        order: 1; /* Le bouton est affiché en premier */
+        margin-bottom: 30px;
+    }
+}
+@media (min-width: 1315px) {
     .header-content {
         flex-direction: row;
     }
+    
 }
 
 .header-image {
@@ -286,7 +314,8 @@
 =========================*/
 
 .header-slogan {
-    margin-top: 80px;
+    align-items: center; /* Centre les éléments */
+    margin-top: 100px;
     margin-right: auto;
     margin-left: auto;
     width: 50%;
@@ -300,11 +329,6 @@
     margin: 0;
     color: #333;
     font-size: 1.5em;
-}
-
-.header-slogan p {
-    margin-top: 10px;
-    color: #666;
 }
 
 .order-button {
@@ -321,7 +345,7 @@
 }
 
 .order-button:hover {
-    background-color: #ffafdc;
+    background-color: #000000;
     color: white;
 }
 
@@ -334,11 +358,12 @@ html {
 }
 
 body {
-    max-width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Ephesis', cursive;
-    background: linear-gradient(to bottom, #ffafdc 0%, #ffbebe 100%) no-repeat;
-    min-height: 100%;
-    padding-top: 60px;
+    background: linear-gradient(to bottom, #ffafdc 0%, #ffbebe 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
