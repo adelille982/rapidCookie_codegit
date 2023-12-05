@@ -3,7 +3,7 @@ include_once 'header.php'
 ?>
 
 <header>
-    <section class="header-content header-content-flex">
+    <section class="header-content">
         <div class="header-carousel">
             <img src="./rapidCookieImages/rapidcookieimageheader7.png" alt="Image 1" class="carousel-image">
             <img src="./rapidCookieImages/rapidcookieimageheader6.png" alt="Image 2" class="carousel-image">
@@ -36,3 +36,7 @@ include_once 'header.php'
         </div>
     </section>
 </header>
+
+<?php
+include_once 'footer.php'
+?>
