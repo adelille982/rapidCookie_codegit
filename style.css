@@ -10,6 +10,7 @@
 }
 
 .hamburger-icon {
+    z-index: 1000;
     display: none;
     position: absolute;
     top: 50px;
@@ -18,31 +19,101 @@
     cursor: pointer;
 }
 
-
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1315px) {
     .hamburger-icon {
         display: block;
     }
-    .navbar > .nav-left {
-        top: 0;
-        left: 0;
-        position: absolute;
-        flex-direction: column;
+
+    .logo {
+        margin-top: -170px;
+        margin-bottom: -15px;
     }
-    .navbar > .nav-right {
-        margin-top: 450px;
-        position: absolute;
-        flex-direction: column;
-    }
-    .nav-left ul {
+
+    .navbar {
         display: flex;
-        flex-wrap: wrap; /* Permet aux éléments de la liste de passer à la ligne */
-      }
-      
-      .nav-left ul li {
-        width: 100%; /* Force chaque élément de la liste à occuper la largeur totale de la ligne */
-        text-align: center; /* Centre le texte dans chaque élément */
-      }   
+        flex-direction: column;
+        align-items: center;
+        /* Centre horizontalement */
+        justify-content: center;
+        /* Centre verticalement */
+        max-width: 100%;
+    }
+
+    .nav-left,
+    .nav-right {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        text-align: center;
+        /* Occupe la largeur totale de la navbar */
+        font-size: 1.1em;
+        background-color: rgba(255, 255, 255, 0.452);
+        backdrop-filter: blur(7px);
+        z-index: 1000;
+    }
+
+    .nav-left.hidden,
+    .nav-right.hidden {
+        display: none;
+    }
+
+    .nav-left {
+        display: flex;
+        /* Utilisez Flexbox pour le positionnement */
+        flex-direction: column;
+        /* Empile les éléments verticalement */
+        align-items: center;
+        /* Centre horizontalement les éléments à l'intérieur */
+        justify-content: center;
+        /* Centre verticalement les éléments à l'intérieur */
+        text-align: center;
+        /* Centre le texte des éléments à l'intérieur */
+        width: 100%;
+        /* Utilisez toute la largeur disponible */
+        margin: auto;
+        /* Centrage horizontal du conteneur lui-même */
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    .nav-left ul {
+        width: 100%;
+        /* Utilisez toute la largeur disponible */
+        display: flex;
+        /* Utilisez Flexbox pour le positionnement */
+        flex-direction: column;
+        /* Empile les éléments verticalement */
+        align-items: center;
+        /* Centre horizontalement les éléments de la liste */
+    }
+
+    .nav-right {
+        display: flex;
+        /* Utilisez Flexbox pour le positionnement */
+        flex-direction: column-reverse;
+        /* Empile les éléments verticalement */
+        align-items: center;
+        /* Centre horizontalement les éléments à l'intérieur */
+        justify-content: center;
+        /* Centre verticalement les éléments à l'intérieur */
+        width: 100%;
+        /* Utilisez toute la largeur disponible */
+        margin: auto;
+        /* Centrage horizontal du conteneur lui-même */
+        border-radius: 0px 0px 20px 20px;
+    }
+
+    .icon-shift-right {
+        margin-left: 50px;
+        /* Déplace l'icône de 10 pixels vers la droite */
+    }
+
+    .search-form {
+        margin-bottom: 20px;
+        width: 100%;
+        /* Ajustez selon le besoin */
+        justify-content: center;
+        /* Centre le formulaire dans son conteneur */
+    }
 }
 
 .navbar {
@@ -58,6 +129,7 @@
     height: auto;
     margin-left: -70px;
     margin-right: -90px;
+    transform: rotate(-10deg) translateX(-5px);
 }
 
 .navbar a {
@@ -81,6 +153,7 @@
     display: flex;
     align-items: center;
     margin-left: 20px;
+    margin-right: 10px;
 }
 
 .search-form input,
@@ -107,7 +180,6 @@
 .nav-right a {
     display: flex;
     align-items: center;
-    margin-right: 20px;
     color: #333;
     text-decoration: none;
     transition: color 0.3s;
@@ -118,25 +190,40 @@
 }
 
 
-.nav-left ul, .nav-right .user-menu {
+.nav-left ul,
+.nav-right .user-menu {
     display: flex;
     margin: 0;
 }
 
-.nav-left li, .nav-right .user-menu {
+.nav-left li,
+.nav-right .user-menu {
     margin-right: 50px;
+    position: relative;
 }
 
 .dropdown-menu {
     display: none;
-    position: relative;
-    background-color: rgb(255, 87, 87)55, 255, 255;
-    width: 200px; /* Largeur fixe du menu déroulant */
+    position: absolute;
+    top: 72px;
+    right: -90px;
+    /* Hauteur de l'icône plus un peu de marge */
+    /* Centrage par rapport à l'icône */
+    background-color: rgba(255, 255, 255, 0.452);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 20px 20px 20px 20px;
+    width: 240px;
+    /* Largeur fixe du menu déroulant */
+    /* Décale le menu vers la gauche de sa propre largeur */
+    z-index: 1000;
 }
 
 .dropdown-menu a {
-    padding: 8px 15px; /* Ajustez le padding pour réduire la taille globale des liens */
-    font-size: 1.5em; /* Taille de police spécifique pour les liens */
+    padding: 8px 15px;
+    /* Ajustez le padding pour réduire la taille globale des liens */
+    font-size: 1.5em;
+    /* Taille de police spécifique pour les liens */
 }
 
 .user-menu:hover .dropdown-menu {
@@ -189,7 +276,8 @@
 .header-image {
     margin-top: auto;
     margin-left: auto;
-    height: auto; /* Garder les proportions */
+    height: auto;
+    /* Garder les proportions */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -246,10 +334,11 @@ html {
 }
 
 body {
+    max-width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Ephesis', cursive;
-    background: linear-gradient(to bottom, #ffafdc 0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #ffafdc 0%, #ffbebe 100%) no-repeat;
     min-height: 100%;
     padding-top: 60px;
 }
