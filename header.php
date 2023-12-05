@@ -14,34 +14,35 @@
     <a href="index.php" class="navbar-brand">
       <img class="logo" src="./rapidCookieImages/Rapidcookielogotransparent.png" alt="RAPIDCOOKIE">
     </a>
-
-    <div class="nav-left">
-      <!-- Éléments à gauche -->
-      <ul>
-        <li id="cookie"><a href="nos_cookies.php">Nos cookies</a></li>
-        <li id = commander><a href="commander.php">Commander</a></li>
-      </ul>
-      <form class="search-form">
-        <input type="text" placeholder="Rechercher">
-        <button type="submit">Rechercher</button>
-      </form>
-    </div>
-
-    <div class="nav-right">
-      <!-- Éléments à droite -->
-      <div class="user-menu">
-        <a><i class="bi bi-person-circle"></i></a>
-        <div class="dropdown-menu">
-          <a href="connexion.php"><strong>CONNEXION</strong></a>
-          <a href="inscription.php"><strong>INSCRIPTION</strong></a>
-          <a href="compte_utilisateur.php"><strong>MON COMPTE</strong></a>
-        </div>
+      <div class="nav-left" id="menu-left">
+        <!-- Éléments à gauche -->
+        <ul >
+          <li id="cookie"><a href="nos_cookies.php">Nos cookies</a></li>
+          <li id=commander><a href="contact.php">Contact</a></li>
+        </ul>
+        <form class="search-form">
+          <input type="text" placeholder="Rechercher">
+          <button type="submit">Rechercher</button>
+        </form>
       </div>
-      <a href="panier.php"><i class="bi bi-cart3"></i></a>
-    </div>
+
+      <div class="nav-right" id="menu-right">
+        <!-- Éléments à droite -->
+        <div class="user-menu" >
+        <a><i class="bi bi-person-circle icon-shift-right"></i></a>
+          <div class="dropdown-menu">
+            <a href="connexion.php"><strong>CONNEXION</strong></a>
+            <a href="inscription.php"><strong>INSCRIPTION</strong></a>
+            <a href="compte_utilisateur.php"><strong>MON COMPTE</strong></a>
+          </div>
+        </div>
+        <a href="panier.php"><i class="bi bi-cart3"></i></a>
+      </div>
       <i class="bi bi-list hamburger-icon" alt="menu-hamburger"></i>
   </nav>
   <script>
+    let isNavDisplayed = true;
+
     document.addEventListener('DOMContentLoaded', () => {
       const userMenu = document.querySelector('.user-menu');
       userMenu.addEventListener('click', (event) => {
@@ -56,8 +57,26 @@
           dropdown.style.display = 'none';
         }
       });
+
+      const hamburgerBtn = document.querySelector('.hamburger-icon');
+      hamburgerBtn.addEventListener('click', () => {
+        const navLeft = document.querySelector('.nav-left');
+        const navRight = document.querySelector('.nav-right');
+
+        if(isNavDisplayed) {
+          navLeft.classList.add('hidden');
+          navRight.classList.add('hidden');
+        } else {
+          navLeft.classList.remove('hidden');
+          navRight.classList.remove('hidden');
+        }
+
+        isNavDisplayed = !isNavDisplayed;
+
+      });
+
+
     });
   </script>
 </body>
-
 </html>
