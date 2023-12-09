@@ -1,6 +1,7 @@
 /*=========================/*=========================/*=========================
                               CSS Général
-=========================*//*=========================/*=========================*/
+=========================*/
+/*=========================/*=========================*/
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
 
 html {
@@ -21,7 +22,8 @@ body {
 
 /*=========================/*=========================/*=========================
                               CSS pour le header
-=========================*//*=========================/*=========================
+=========================*/
+/*=========================/*=========================
 
 /*=========================
   CSS pour la navbar
@@ -135,7 +137,7 @@ body {
         justify-content: center;
         /* Centre le formulaire dans son conteneur */
     }
-    
+
 }
 
 .navbar {
@@ -258,7 +260,8 @@ body {
 
 /*=========================/*=========================/*=========================
                               CSS pour le footer
-=========================*//*=========================/*=========================*/
+=========================*/
+/*=========================/*=========================*/
 
 footer {
     text-align: center;
@@ -280,7 +283,8 @@ footer {
 
 /*=========================/*=========================/*=========================
                               CSS pour la page index
-=========================*//*=========================/*=========================
+=========================*/
+/*=========================/*=========================
 
 /*=========================
   CSS pour le Carousel
@@ -323,30 +327,36 @@ footer {
 
 @media (max-width: 1315px) {
     .header-carousel {
-        margin-bottom: -230px; /* Réduisez selon le besoin */
+        margin-bottom: -230px;
+        /* Réduisez selon le besoin */
         height: 500px;
         width: 80%;
     }
+
     .header-slogan {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centre les éléments */
+        align-items: center;
+        /* Centre les éléments */
     }
 
     .header-slogan h1 {
-        order: 2; /* Le texte est affiché en second */
+        order: 2;
+        /* Le texte est affiché en second */
     }
 
     .order-button {
-        order: 1; /* Le bouton est affiché en premier */
+        order: 1;
+        /* Le bouton est affiché en premier */
         margin-bottom: 30px;
     }
 }
+
 @media (min-width: 1315px) {
     .header-content {
         flex-direction: row;
     }
-    
+
 }
 
 .header-image {
@@ -362,7 +372,8 @@ footer {
 =========================*/
 
 .header-slogan {
-    align-items: center; /* Centre les éléments */
+    align-items: center;
+    /* Centre les éléments */
     margin-top: 100px;
     margin-right: auto;
     margin-left: auto;
@@ -395,4 +406,61 @@ footer {
 .order-button:hover {
     background-color: #000000;
     color: white;
+}
+
+/*=========================/*=========================/*=========================
+                              CSS pour la page noscookies
+/*=========================/*=========================*//*=====================*/
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+    margin-top: 130px;
+    margin-right: 80px;
+    margin-left: 80px;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    /* Dégradé blanc */
+    padding: 130px;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    flex: 1;
+    width: 50%;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    /* Dégradé blanc */
+}
+
+.product-info {
+    flex: 1;
+    text-align: center;
+    padding-left: 70px
+}
+
+.product-info h2 {
+    font-size: 3em;
+}
+
+.product-info p {
+    font-size: 1.8em;
+}
+
+
+@media screen and (max-width: 1760px) {
+
+    .product-image,
+    .product-info {
+        width: 100%;
+        /* Les deux prennent toute la largeur de leur conteneur */
+    }
+
+    .product-container {
+        padding: 30px;
+        /* Réduire le padding pour les petits écrans */
+    }
 }
