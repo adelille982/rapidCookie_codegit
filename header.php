@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <title>RAPIDCOOKIE</title>
@@ -17,7 +18,7 @@
       <div class="nav-left" id="menu-left">
         <!-- Éléments à gauche -->
         <ul >
-          <li id="cookie"><a href="nos_cookies.php">Nos cookies</a></li>
+          <li id="cookie"><a href="noscookies.php">Nos cookies</a></li>
           <li id=commander><a href="contact.php">Contact</a></li>
         </ul>
         <form class="search-form">
