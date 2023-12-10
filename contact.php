@@ -22,7 +22,6 @@ include_once "header.php"
             </form>
         </div>
     </div>
-    </div>
 </section>
 
 <?php
