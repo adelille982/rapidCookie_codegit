@@ -9,10 +9,6 @@
     <title>RAPIDCOOKIE</title>
 </head>
 
-<br>
-<br>
-<br>
-
 <footer>
 <div class="social-media-icons">
         <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -22,5 +18,4 @@
 </footer>
 
 </body>
-
 </html>

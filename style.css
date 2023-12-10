@@ -264,6 +264,7 @@ body {
 /*=========================/*=========================*/
 
 footer {
+    margin-top: 80px;
     text-align: center;
     padding: 20px 0;
     background-color: #4e4e4e;
@@ -529,10 +530,10 @@ a.order-button-page-produit {
     margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="email"],
-textarea,
-input[type="submit"] {
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.contact-form input[type="submit"] {
     width: 100%;
     padding: 10px;
     border-radius: 20px;
@@ -540,15 +541,13 @@ input[type="submit"] {
     font-size: 16px;
 }
 
-input[type="submit"] {
+.contact-form input[type="submit"] {
     background-color: #222324;
-    /* Même couleur que vos barres de progression */
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+.contact-form input[type="submit"]:hover {
     background-color: #555556;
-    /* Couleur plus claire lors du survol */
 }
