@@ -3,6 +3,7 @@ include_once 'header.php'
 ?>
 
 </head>
+
 <body>
 
     <h1 class="title-noscookies">Vos Cookies Préférées</h1>
@@ -49,6 +50,6 @@ include_once 'header.php'
         </div>
     </div>
 
-<?php
-include_once 'footer.php'
-?>
+    <?php
+    include_once 'footer.php'
+    ?>

@@ -62,11 +62,11 @@ include_once 'header.php'
 </section>
 
 <section class="order-history">
-        <h2>Historique des Commandes</h2>
-        <ul id="order-list">
+    <h2>Historique des Commandes</h2>
+    <ul id="order-list">
 
-        </ul>
-    </section>
+    </ul>
+</section>
 
 <?php
 include_once 'footer.php'

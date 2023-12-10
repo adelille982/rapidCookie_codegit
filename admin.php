@@ -6,7 +6,7 @@ include_once 'header.php'
     <h1 class="title-contact">Administration</h1>
     <div class="skills-section2">
         <div class="contact-form">
-        <h2 class="title-contact">Modifier le stock disponible</h2>
+            <h2 class="title-contact">Modifier le stock disponible</h2>
             <form action="#" method="post">
                 <div class="form-group">
                     <input type="text" name="name" id="name" placeholder="Nom du cookie" required>
@@ -28,7 +28,7 @@ include_once 'header.php'
 <section>
     <div class="skills-section2">
         <div class="contact-form">
-        <h2 class="title-contact">Rajouter une variété de cookie</h2>
+            <h2 class="title-contact">Rajouter une variété de cookie</h2>
             <form action="#" method="post">
                 <div class="form-group">
                     <input type="text" name="name" id="name" placeholder="Nom du cookie" required>
@@ -56,7 +56,7 @@ include_once 'header.php'
 <section>
     <div class="skills-section2">
         <div class="contact-form">
-        <h2 class="title-contact">Rajouter un utilisateur</h2>
+            <h2 class="title-contact">Rajouter un utilisateur</h2>
             <form action="#" method="post">
                 <div class="form-group">
                     <input type="text" name="name" id="firstname" placeholder="Nom" required>
