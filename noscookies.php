@@ -6,6 +6,8 @@ include_once 'header.php'
 
 <body>
 
+    <h1 class="title-noscookies">Vos Cookies Préférées</h1>
+
     <div class="product-container">
         <img class="product-image" src="./rapidCookieImages/rapidcookie image 2.png" alt="Image Produit 1">
         <div class="product-info">
