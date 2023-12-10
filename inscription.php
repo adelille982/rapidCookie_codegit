@@ -23,7 +23,7 @@ include_once 'header.php'
                     <input type="text" name="address1" id="address1" placeholder="Adresse (ligne 1)" required>
                 </div>
                 <div class="form-group">
-                <input type="text" name="address2" id="address2" placeholder="Adresse (ligne 2)" required>
+                    <input type="text" name="address2" id="address2" placeholder="Adresse (ligne 2)" required>
                 </div>
                 <div class="form-group">
                     <input type="text" name="city" id="city" placeholder="Ville" required>
@@ -38,7 +38,7 @@ include_once 'header.php'
                     <input type="tel" name="phone" id="phone" placeholder="Téléphone" required>
                 </div>
                 <div class="form-group">
-                <input type="submit" value="Inscription">
+                    <input type="submit" value="Inscription">
                 </div>
             </form>
         </div>

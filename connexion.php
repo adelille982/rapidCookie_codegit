@@ -7,7 +7,7 @@ include_once 'header.php'
     <div class="skills-section2">
         <div class="contact-form">
             <form action="#" method="post">
-            <div class="form-group">
+                <div class="form-group">
                     <input type="email" name="email" id="email" placeholder="Votre Email" required>
                 </div>
                 <div class="form-group">
