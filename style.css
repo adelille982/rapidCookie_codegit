@@ -390,7 +390,7 @@ footer {
     font-size: 1.5em;
 }
 
-.order-button {
+.order-button-home {
     display: inline-block;
     background-color: white;
     color: black;
@@ -403,14 +403,15 @@ footer {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.order-button:hover {
+.order-button-home:hover {
     background-color: #000000;
     color: white;
 }
 
 /*=========================/*=========================/*=========================
                               CSS pour la page noscookies
-/*=========================/*=========================*//*=====================*/
+/*=========================/*=========================*/
+/*=====================*/
 
 .product-container {
     display: flex;
@@ -424,7 +425,7 @@ footer {
     border-radius: 30px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     /* Dégradé blanc */
-    padding: 130px;
+    padding: 110px;
     margin-bottom: 20px;
 }
 
@@ -434,6 +435,24 @@ footer {
     border-radius: 30px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     /* Dégradé blanc */
+}
+
+a.order-button-page-produit {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 10px 60px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: 'Ephesis', cursive;
+    font-size: 1.8em;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.order-button-page-produit:hover {
+    background-color: #000000;
+    color: white;
 }
 
 .product-info {
@@ -451,7 +470,7 @@ footer {
 }
 
 
-@media screen and (max-width: 1760px) {
+@media screen and (max-width: 1700px) {
 
     .product-image,
     .product-info {

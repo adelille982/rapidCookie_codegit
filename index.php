@@ -32,7 +32,7 @@ include_once 'header.php'
             <h1>Cookies haut de gamme, moelleux et fondants.<br>
                 Entièrement réalisés à la main avec des ingrédients d'excellence et locaux.<br>
                 Expédition soignée et livraison de vos cookies dans la France entière.</h1><br><br>
-            <a href="commande.html" class="order-button">Commander vos cookies favoris dès maintenant !</a>
+            <a href="commande.html" class="order-button-home">Commander vos cookies favoris dès maintenant !</a>
         </div>
     </section>
 </header>
