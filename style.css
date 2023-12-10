@@ -1,9 +1,33 @@
+/*=========================/*=========================/*=========================
+                              CSS Général
+=========================*/
+/*=========================/*=========================*/
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
 
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ephesis', cursive;
+    background: linear-gradient(to bottom, #ffafdc 0%, #ffbebe 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
+/*=========================/*=========================/*=========================
+                              CSS pour le header
+=========================*/
+/*=========================/*=========================
 
 /*=========================
   CSS pour la navbar
-=========================____*/
+===========================*/
 * {
     text-decoration: none;
     list-style: none;
@@ -113,7 +137,7 @@
         justify-content: center;
         /* Centre le formulaire dans son conteneur */
     }
-    
+
 }
 
 .navbar {
@@ -234,6 +258,34 @@
     display: block;
 }
 
+/*=========================/*=========================/*=========================
+                              CSS pour le footer
+=========================*/
+/*=========================/*=========================*/
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #4e4e4e;
+    color: white;
+}
+
+.social-media-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+}
+
+.social-media-icons a:hover {
+    color: #ffafdc;
+}
+
+
+/*=========================/*=========================/*=========================
+                              CSS pour la page index
+=========================*/
+/*=========================/*=========================
+
 /*=========================
   CSS pour le Carousel
 =========================*/
@@ -275,30 +327,36 @@
 
 @media (max-width: 1315px) {
     .header-carousel {
-        margin-bottom: -230px; /* Réduisez selon le besoin */
+        margin-bottom: -230px;
+        /* Réduisez selon le besoin */
         height: 500px;
         width: 80%;
     }
+
     .header-slogan {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centre les éléments */
+        align-items: center;
+        /* Centre les éléments */
     }
 
     .header-slogan h1 {
-        order: 2; /* Le texte est affiché en second */
+        order: 2;
+        /* Le texte est affiché en second */
     }
 
     .order-button {
-        order: 1; /* Le bouton est affiché en premier */
+        order: 1;
+        /* Le bouton est affiché en premier */
         margin-bottom: 30px;
     }
 }
+
 @media (min-width: 1315px) {
     .header-content {
         flex-direction: row;
     }
-    
+
 }
 
 .header-image {
@@ -314,7 +372,8 @@
 =========================*/
 
 .header-slogan {
-    align-items: center; /* Centre les éléments */
+    align-items: center;
+    /* Centre les éléments */
     margin-top: 100px;
     margin-right: auto;
     margin-left: auto;
@@ -331,7 +390,7 @@
     font-size: 1.5em;
 }
 
-.order-button {
+.order-button-home {
     display: inline-block;
     background-color: white;
     color: black;
@@ -344,26 +403,83 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
-.order-button:hover {
+.order-button-home:hover {
     background-color: #000000;
     color: white;
 }
 
-/*=========================
-  CSS Général
-=========================*/
+/*=========================/*=========================/*=========================
+                              CSS pour la page noscookies
+/*=========================/*=========================*/
+/*=====================*/
 
-html {
-    height: 100%;
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+    margin-top: 130px;
+    margin-right: 80px;
+    margin-left: 80px;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    /* Dégradé blanc */
+    padding: 110px;
+    margin-bottom: 20px;
 }
 
-body {
-    margin: 0;
-    padding: 0;
+.product-image {
+    flex: 1;
+    width: 50%;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    /* Dégradé blanc */
+}
+
+a.order-button-page-produit {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 10px 60px;
+    border-radius: 30px;
+    text-decoration: none;
     font-family: 'Ephesis', cursive;
-    background: linear-gradient(to bottom, #ffafdc 0%, #ffbebe 100%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
+    font-size: 1.8em;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.order-button-page-produit:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.product-info {
+    flex: 1;
+    text-align: center;
+    padding-left: 70px
+}
+
+.product-info h2 {
+    font-size: 3em;
+}
+
+.product-info p {
+    font-size: 1.8em;
+}
+
+
+@media screen and (max-width: 1700px) {
+
+    .product-image,
+    .product-info {
+        width: 100%;
+        /* Les deux prennent toute la largeur de leur conteneur */
+    }
+
+    .product-container {
+        padding: 30px;
+        /* Réduire le padding pour les petits écrans */
+    }
 }
