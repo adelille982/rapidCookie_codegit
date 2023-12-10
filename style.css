@@ -57,9 +57,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* Centre horizontalement */
         justify-content: center;
-        /* Centre verticalement */
         max-width: 100%;
     }
 
@@ -82,66 +80,45 @@ body {
 
     .nav-left {
         display: flex;
-        /* Utilisez Flexbox pour le positionnement */
         flex-direction: column;
-        /* Empile les éléments verticalement */
         align-items: center;
-        /* Centre horizontalement les éléments à l'intérieur */
         justify-content: center;
-        /* Centre verticalement les éléments à l'intérieur */
         text-align: center;
-        /* Centre le texte des éléments à l'intérieur */
         width: 100%;
-        /* Utilisez toute la largeur disponible */
         margin: auto;
-        /* Centrage horizontal du conteneur lui-même */
         border-radius: 20px 20px 0px 0px;
     }
 
     .nav-left ul {
         width: 100%;
-        /* Utilisez toute la largeur disponible */
         display: flex;
-        /* Utilisez Flexbox pour le positionnement */
         flex-direction: column;
-        /* Empile les éléments verticalement */
         align-items: center;
-        /* Centre horizontalement les éléments de la liste */
     }
 
     .nav-right {
         display: flex;
-        /* Utilisez Flexbox pour le positionnement */
         flex-direction: column-reverse;
-        /* Empile les éléments verticalement */
         align-items: center;
-        /* Centre horizontalement les éléments à l'intérieur */
         justify-content: center;
-        /* Centre verticalement les éléments à l'intérieur */
         width: 100%;
-        /* Utilisez toute la largeur disponible */
         margin: auto;
-        /* Centrage horizontal du conteneur lui-même */
         border-radius: 0px 0px 20px 20px;
     }
 
     .icon-shift-right {
         margin-left: 50px;
-        /* Déplace l'icône de 10 pixels vers la droite */
     }
 
     .search-form {
         margin-bottom: 20px;
         width: 100%;
-        /* Ajustez selon le besoin */
         justify-content: center;
-        /* Centre le formulaire dans son conteneur */
     }
 
 }
 
 .navbar {
-    /* Styles de .navbar restent inchangés */
     position: relative;
     top: 60px;
     display: flex;
@@ -152,7 +129,6 @@ body {
 }
 
 .logo {
-    /* Styles de .logo restent inchangés */
     width: 400px;
     height: auto;
     margin-left: -70px;
@@ -235,23 +211,17 @@ body {
     position: absolute;
     top: 72px;
     right: -90px;
-    /* Hauteur de l'icône plus un peu de marge */
-    /* Centrage par rapport à l'icône */
     background-color: rgba(255, 255, 255, 0.452);
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(15px);
     border-radius: 20px 20px 20px 20px;
     width: 240px;
-    /* Largeur fixe du menu déroulant */
-    /* Décale le menu vers la gauche de sa propre largeur */
     z-index: 1000;
 }
 
 .dropdown-menu a {
     padding: 8px 15px;
-    /* Ajustez le padding pour réduire la taille globale des liens */
     font-size: 1.5em;
-    /* Taille de police spécifique pour les liens */
 }
 
 .user-menu:hover .dropdown-menu {
@@ -329,7 +299,6 @@ footer {
 @media (max-width: 1315px) {
     .header-carousel {
         margin-bottom: -230px;
-        /* Réduisez selon le besoin */
         height: 500px;
         width: 80%;
     }
@@ -338,17 +307,14 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* Centre les éléments */
     }
 
     .header-slogan h1 {
         order: 2;
-        /* Le texte est affiché en second */
     }
 
     .order-button {
         order: 1;
-        /* Le bouton est affiché en premier */
         margin-bottom: 30px;
     }
 }
@@ -364,7 +330,6 @@ footer {
     margin-top: auto;
     margin-left: auto;
     height: auto;
-    /* Garder les proportions */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -374,7 +339,6 @@ footer {
 
 .header-slogan {
     align-items: center;
-    /* Centre les éléments */
     margin-top: 100px;
     margin-right: auto;
     margin-left: auto;
@@ -401,6 +365,7 @@ footer {
     font-family: 'Ephesis', cursive;
     font-size: 1.2em;
     margin-top: 20px;
+    margin-bottom: 20px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -443,7 +408,6 @@ footer {
     width: 50%;
     border-radius: 30px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-    /* Dégradé blanc */
 }
 
 a.order-button-page-produit {
@@ -483,12 +447,10 @@ a.order-button-page-produit {
     .product-image,
     .product-info {
         width: 100%;
-        /* Les deux prennent toute la largeur de leur conteneur */
     }
 
     .product-container {
         padding: 30px;
-        /* Réduire le padding pour les petits écrans */
     }
 }
 
@@ -533,7 +495,10 @@ a.order-button-page-produit {
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea,
-.contact-form input[type="submit"] {
+.contact-form input[type="submit"],
+.contact-form input[type="password"],
+.contact-form input[type="number"],
+.contact-form input[type="tel"] {
     width: 100%;
     padding: 10px;
     border-radius: 20px;

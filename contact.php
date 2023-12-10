@@ -3,7 +3,7 @@ include_once "header.php"
 ?>
 
 <section>
-    <h1 class="title-contact">CONTACT</h1>
+    <h1 class="title-contact">Contact</h1>
     <div class="skills-section2">
         <div class="contact-form">
             <form action="#" method="post">
