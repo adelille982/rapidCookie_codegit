@@ -1,5 +1,37 @@
 <?php
-include_once 'header.php'
+include_once 'header.php';
+require_once 'User.php';
+require_once 'Address.php';
+require_once 'Database.php';
+$dsn = "mysql:host=localhost;dbname=rapidcookie";
+?>
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Créez une instance de User et enregistrez l'utilisateur dans la base de données
+    $user = new User(null,$username, $email, $password);
+    $user->registerUser();
+
+    // Récupérez l'ID de l'utilisateur nouvellement enregistré
+    $userId = $user->getUserId();
+
+    // Assurez-vous d'ajuster ces valeurs en fonction du formulaire d'inscription
+    $address_line1 = $_POST['address_line1'];
+    $address_line2 = $_POST['address_line2'];
+    $city = $_POST['city'];
+    $postal_code = $_POST['postal_code'];
+    $country = $_POST['country'];
+    $phone = $_POST['phone'];
+
+    // Créez une instance de Address et enregistrez l'adresse de l'utilisateur
+    $address = new Address($userId, $address_line1, $address_line2, $city, $postal_code, $country, $phone);
+    $address->saveAddress(new Database($dsn, $username, $password)); // Assurez-vous de passer une instance de Database
+}
 ?>
 
 <section>
