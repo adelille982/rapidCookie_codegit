@@ -19,42 +19,52 @@ include_once 'header.php'
                 <div class="form-group">
                     <input type="text" name="name" id="firstname" placeholder="Nom" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="text" name="name" id="lastname" placeholder="Prénom" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="email" name="email" id="email" placeholder="Votre Email" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="text" name="address1" id="address1" placeholder="Adresse (ligne 1)" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="text" name="address2" id="address2" placeholder="Adresse (ligne 2)" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="text" name="city" id="city" placeholder="Ville" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="number" name="postal_code" id="postal_code" placeholder="Code Postal" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="text" name="country" id="country" placeholder="Pays" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
                 <div class="form-group">
                     <input type="tel" name="phone" id="phone" placeholder="Téléphone" required>
                     <input type="submit" value="Mettre à jour">
+                    <input type="submit" value="Supprimer">
                 </div>
             </form>
         </div>
