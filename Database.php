@@ -14,7 +14,12 @@ class Database {
     public function getPdo(): PDO {
         return $this->pdo;
     }
+
+    public function executeQuery($query, $params = []) {
+        // Préparation et exécution de la requête
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute($params);
+        return $stmt;
+    }
 }
-
-
 ?> 

@@ -1,4 +1,4 @@
-Ali Camara says:<?php
+<?php
 
 class Address {
     private $user_id;
