@@ -19,6 +19,11 @@ class User {
         return $this->id;
     }
 
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
+
     public function getFirstname(): string {
         return $this->firstname;
     }
@@ -37,12 +42,32 @@ class User {
 
     /* fin des accès */
 
+    public static function authenticateUser($identifiant, $enteredPassword) {
+        $pdo = (new Database())->getPdo();
+    
+        $query = $pdo->prepare("SELECT * FROM user WHERE email = :email");
+        $query->bindParam(":email", $identifiant);
+        $query->execute();
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+    
+        if ($user && password_verify($enteredPassword, $user['password_hash'])) {
+            // Créez l'objet User avec toutes les données, y compris l'ID.
+            $userObj = new User($user['firstname'], $user['lastname'], $user['email'], $user['password_hash']);
+            $userObj->setId($user['id']); // Assurez-vous que cette méthode existe et fonctionne correctement.
+            return $userObj;
+        }
+    
+        return null;
+    }
+
+
     /* Hash du mdp*/
     public function authenticate($enteredPassword)
     {
         return password_verify($enteredPassword, $this->password);
     }
 
+    /* enregistrement de l'inscription dans la base de donnée */
     public function registerUser(Database $db) {
         $pdo = $db->getPdo();
 
@@ -102,4 +127,3 @@ class User {
         }
     }
 }
-

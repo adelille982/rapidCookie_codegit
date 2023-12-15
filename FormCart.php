@@ -1,39 +1,39 @@
 <?php
 //require_once 'Cart.php';
-require_once 'CartItem.php';
+//require_once 'CartItem.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les données du formulaire
-    $userId = $_POST['user_id'];
-    $createdAt = date('Y-m-d H:i😒');
-    $updatedAt = $createdAt;
+//    $userId = $_POST['user_id'];
+//    $createdAt = date('Y-m-d H:i😒');
+//    $updatedAt = $createdAt;
 
     // Créer une instance de Cart
-    $cart = new Cart($userId, $createdAt, $updatedAt);
+//    $cart = new Cart($userId, $createdAt, $updatedAt);
 
     // Enregistrer le panier dans la base de données
-    $cart->saveCart();
+//    $cart->saveCart();
 
     // Vérifier si les données des articles du panier sont définies
-    if (isset($_POST['cookie_type']) && isset($_POST['quantity'])) {
-        $cookieTypes = $_POST['cookie_type'];
-        $quantities = $_POST['quantity'];
+//    if (isset($_POST['cookie_type']) && isset($_POST['quantity'])) {
+//        $cookieTypes = $_POST['cookie_type'];
+//        $quantities = $_POST['quantity'];
 
         // Enregistrer chaque article du panier dans la table cart_items
-        for ($i = 0; $i < count($cookieTypes); $i++) {
-            $cookieTypeId = $cookieTypes[$i];
-            $quantity = $quantities[$i];
+//        for ($i = 0; $i < count($cookieTypes); $i++) {
+//            $cookieTypeId = $cookieTypes[$i];
+//            $quantity = $quantities[$i];
 
             // Créer une instance de CartItem
-            $cartItem = new CartItem($cart->getId(), $cookieTypeId, $quantity);
+//            $cartItem = new CartItem($cart->getId(), $cookieTypeId, $quantity);
 
             // Enregistrer l'article du panier dans la base de données
-            $cartItem->saveCartItem();
-        }
-    } else {
-        echo "Erreur : Les données des articles du panier ne sont pas définies.";
-    }
-}
+//            $cartItem->saveCartItem();
+//        }
+//    } else {
+//        echo "Erreur : Les données des articles du panier ne sont pas définies.";
+//    }
+//  }
 ?>
 
 <!DOCTYPE html>

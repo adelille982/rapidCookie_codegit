@@ -1,61 +1,39 @@
 <?php
-include_once 'header.php'
-?>
+require_once 'Database.php';
+require_once 'User.php';
 
-<?php
+if (isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit();
+}
 
-class Database {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    public static function getPdo(){
-        // Inclure le fichier de configuration
-        include_once('config.php');
+    $user = User::authenticateUser($email, $password);
 
-        try {
-            $pdo = new PDO(DB_DSN, DB_USER, DB_PASS);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $pdo;
-        } catch (PDOException $e) {
-            die("Erreur de connexion à la base de données : " . $e->getMessage());
+    if ($user) {
+        // Démarrer la session et définir les variables de session
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
         }
-    }
+        $_SESSION['user_id'] = $user->getId();
+        $_SESSION['email'] = $user->getEmail();
 
-    // Méthode pour exécuter une requête et récupérer un seul résultat
-    public static function queryOne($query, $params) {
-        $pdo = self::getPdo();
-
-        try {
-            $stmt = $pdo->prepare($query);
-
-            // Liage des paramètres
-            if ($params) {
-                foreach ($params as $key => $value) {
-                    $stmt->bindParam("😒key", $value);
-                }
-            }
-
-            // Exécution de la requête
-            $stmt->execute();
-
-            // Récupération du résultat
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            // Fermeture du statement
-            $stmt->closeCursor();
-
-            // Renvoie le résultat en tant que tableau associatif
-            return $result;
-        } catch (PDOException $e) {
-            die("Erreur de requête : " . $e->getMessage());
-        }
+        header('Location: compte_utilisateur.php');
+        exit();
+    } else {
+        $login_error = "Identifiant ou mot de passe incorrect";
     }
 }
-?> 
-
+include_once 'header.php';
+?>
 <section>
     <h1 class="title-contact">Connexion</h1>
     <div class="skills-section2">
         <div class="contact-form">
-            <form action="#" method="post">
+            <form action="connexion.php" method="post">
                 <div class="form-group">
                     <input type="email" name="email" id="email" placeholder="Votre Email" required>
                 </div>

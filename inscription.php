@@ -1,11 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 include_once 'header.php';
-require_once 'Database.php';
-require_once 'User.php';
-require_once 'Address.php';
 ?>
 
 <?php
@@ -26,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupération de l'ID de l'utilisateur nouvellement enregistré
     $userId = $user->getId();
 
-     //Assurez-vous d'ajuster ces valeurs en fonction du formulaire d'inscription
+    //Assurez-vous d'ajuster ces valeurs en fonction du formulaire d'inscription
     $address_line1 = $_POST['address_line1'];
     $address_line2 = $_POST['address_line2'];
     $city = $_POST['city'];
@@ -48,6 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1 class="title-contact">Inscription</h1>
     <div class="skills-section2">
         <div class="contact-form">
+            <?php
+            if (isset($_SESSION['inscription_message'])) {
+                echo "<div style='text-align: center; font-size: 40px'><p style='color: black;'>" . $_SESSION['inscription_message'] . "</p></div>";
+                unset($_SESSION['inscription_message']);
+            }
+            ?>
             <form action="#" method="post">
                 <div class="form-group">
                     <input type="text" name="firstname" id="firstname" placeholder="Nom" required>
@@ -82,12 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-group">
                     <input type="submit" value="Inscription">
                 </div>
-                <?php
-                    if (isset($_SESSION['inscription_message'])) {
-                        echo "<div style='text-align: center; font-size: 40px'><p style='color: black;'>" . $_SESSION['inscription_message'] . "</p></div>";
-                        unset($_SESSION['inscription_message']);
-                    }
-                ?>
             </form>
         </div>
     </div>
