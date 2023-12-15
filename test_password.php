@@ -18,4 +18,4 @@ if ($user && password_verify($passwordTest, $user['password_hash'])) {
 } else {
     echo "Le mot de passe est incorrect.";
 }
-?>
+

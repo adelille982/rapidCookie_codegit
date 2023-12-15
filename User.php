@@ -42,6 +42,25 @@ class User {
 
     /* fin des accès */
 
+    // Méthode pour récupérer un utilisateur par son ID
+    public static function getUserById(Database $db, $userId) {
+        $pdo = $db->getPdo();
+
+        // Préparez et exécutez la requête pour obtenir les informations de l'utilisateur
+        $stmt = $pdo->prepare("SELECT * FROM user WHERE id = ?");
+        $stmt->execute([$userId]);
+        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($userData) {
+            // Créer et retourner un objet User avec les données récupérées
+            return new User($userData['firstname'], $userData['lastname'], $userData['email'], $userData['password_hash']);
+        } else {
+            // Retourner null si aucun utilisateur n'est trouvé
+            return null;
+        }
+    }
+
+            // Démarrez une session utilisateur
     public static function authenticateUser($identifiant, $enteredPassword) {
         $pdo = (new Database())->getPdo();
     
