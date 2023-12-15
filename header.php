@@ -1,3 +1,12 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once 'Database.php';
+require_once 'User.php';
+require_once 'Address.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -36,6 +45,10 @@
           <a href="connexion.php"><strong>CONNEXION</strong></a>
           <a href="inscription.php"><strong>INSCRIPTION</strong></a>
           <a href="compte_utilisateur.php"><strong>MON COMPTE</strong></a>
+          <?php if (isset($_SESSION['user_id'])) : ?>
+        <strong><p class="loginco"><?php echo htmlspecialchars($_SESSION['email']); ?></p></strong>
+        <a class="logindec" href="logout.php">Déconnexion</a>
+      <?php endif; ?>
         </div>
       </div>
       <a href="Cart.php"><i class="bi bi-cart3"></i></a>
