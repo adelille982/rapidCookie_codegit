@@ -31,4 +31,11 @@ class Address {
         $result = $database->executeQuery($query, $params);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function updateAddress(Database $database) {
+        $query = "UPDATE address SET address_line1 = ?, address_line2 = ?, city = ?, postal_code = ?, country = ?, phone = ? WHERE user_id = ?";
+        $params = [$this->address_line1, $this->address_line2, $this->city, $this->postal_code, $this->country, $this->phone, $this->user_id];
+        $database->executeQuery($query, $params);
+    }
+    
 } 

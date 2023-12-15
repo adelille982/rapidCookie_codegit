@@ -1,5 +1,6 @@
 <?php
-class User {
+class User
+{
     private ?int $id = null;
     private string $firstname;
     private string $lastname;
@@ -7,43 +8,75 @@ class User {
     private string $password;
 
     // Constructeur
-    public function __construct($firstname, $lastname, $email, $password) {
+    public function __construct($firstname, $lastname, $email, $password)
+    {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
         $this->password = $password;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    // Méthode pour définir le prénom
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    // Méthode pour définir le nom
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    // Méthode pour définir l'email
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    // Méthode pour définir le mot de passe
+    public function setPassword($password)
+    {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+    }
+
     // Méthodes d'accès
-    public function getId(): ?int {
+    public function getId(): ?int
+    {
         return $this->id;
     }
 
-    public function setId($id) {
-        $this->id = $id;
-    }
-    
 
-    public function getFirstname(): string {
+    public function getFirstname(): string
+    {
         return $this->firstname;
     }
 
-    public function getLastname(): string {
+    public function getLastname(): string
+    {
         return $this->lastname;
     }
 
-    public function getEmail(): string {
+    public function getEmail(): string
+    {
         return $this->email;
     }
 
-    public function getPassword(): string {
+    public function getPassword(): string
+    {
         return $this->password;
     }
 
     /* fin des accès */
 
     // Méthode pour récupérer un utilisateur par son ID
-    public static function getUserById(Database $db, $userId) {
+    public static function getUserById(Database $db, $userId)
+    {
         $pdo = $db->getPdo();
 
         // Préparez et exécutez la requête pour obtenir les informations de l'utilisateur
@@ -60,22 +93,23 @@ class User {
         }
     }
 
-            // Démarrez une session utilisateur
-    public static function authenticateUser($identifiant, $enteredPassword) {
+    // Démarrez une session utilisateur
+    public static function authenticateUser($identifiant, $enteredPassword)
+    {
         $pdo = (new Database())->getPdo();
-    
+
         $query = $pdo->prepare("SELECT * FROM user WHERE email = :email");
         $query->bindParam(":email", $identifiant);
         $query->execute();
         $user = $query->fetch(PDO::FETCH_ASSOC);
-    
+
         if ($user && password_verify($enteredPassword, $user['password_hash'])) {
             // Créez l'objet User avec toutes les données, y compris l'ID.
             $userObj = new User($user['firstname'], $user['lastname'], $user['email'], $user['password_hash']);
             $userObj->setId($user['id']); // Assurez-vous que cette méthode existe et fonctionne correctement.
             return $userObj;
         }
-    
+
         return null;
     }
 
@@ -87,7 +121,8 @@ class User {
     }
 
     /* enregistrement de l'inscription dans la base de donnée */
-    public function registerUser(Database $db) {
+    public function registerUser(Database $db)
+    {
         $pdo = $db->getPdo();
 
         $passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
@@ -102,7 +137,8 @@ class User {
         $this->id = $pdo->lastInsertId();
     }
 
-    public function updateUser(Database $db) {
+    public function updateUser(Database $db)
+    {
         $pdo = $db->getPdo();
         $dsn = "mysql:host=localhost;dbname=rapidcookie";
         $username = "root";
@@ -126,7 +162,8 @@ class User {
         }
     }
 
-    public function deleteUser(Database $db) {
+    public function deleteUser(Database $db)
+    {
         $pdo = $db->getPdo();
         $dsn = "mysql:host=localhost;dbname=rapidcookie";
         $username = "root";
